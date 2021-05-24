@@ -56,6 +56,10 @@
               <Card
                 drawCard={ this.drawCard }
                 shuffle={ this.shuffle }
+                //parent class wasnt bieng refferenced in the component correctly.
+                // has to reffence hand as a state because its an array 
+                hand= {this.state.hand}
+              
               />
             </>
           )
@@ -79,11 +83,13 @@
             padding: "10px"
           }
           return(
+            // on lines 89 and 92 the had to reffrence the objects correctly by usings "this.props.objectName"
             <>
-              <button onClick={ }>
+              <button onClick= { 
+                this.props.drawCard }>
                 Click to Draw a Card
               </button>
-              <button onClick={ shuffle }>
+              <button onClick={ this.props.shuffle }>
                 Return Cards and Shuffle Deck
               </button>
               <div style={ handStyles }>
